@@ -1,0 +1,21 @@
+name: Template
+version: '1.0-mc-1.8.8'
+main: dk.Template.Template
+api-version: '1.8.8'
+authors: [cfj1211]
+loadbefore: []
+libraries:
+  - org.xerial:sqlite-jdbc:3.47.1.0
+commands:
+  command1:
+    aliases:
+      - k1
+    description: Henter alle bruger kommandoer.
+    permission: permission
+    permission-message: Du har ikke adgang til denne kit kommando.
+  command2:
+    aliases:
+      - k2
+    description: Henter alle kit admin kommandoer.
+    permission: permission.admin
+    permission-message: Du har ikke adgang til denne admin kommando.

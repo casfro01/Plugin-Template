@@ -1,0 +1,34 @@
+package dk.Template.Commands.User;
+
+import dk.Template.Commands.CommandBuilder;
+import dk.Template.Commands.CommandFactory;
+import dk.Template.Commands.CommandInvoker;
+import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+
+public class UserCommandExecutor implements org.bukkit.command.CommandExecutor{
+    private final CommandInvoker invoker = new CommandInvoker();
+
+    @Override
+    public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
+        if (!commandSender.hasPermission("permission")){
+            commandSender.sendMessage(ChatColor.RED + "Du har ikke adgang til systemet.");
+            return false;
+        }
+        if (strings.length < 1){
+            invoker.executeCommand(new CommandBuilder().setCommand("list/help", CommandFactory.CommandType.USER).setPlayer(commandSender).getCommand());
+            return true;
+        }
+        // Find argumenterne, hvis der er nogen. Hvis der ikke er så er den tom... og kommandoerne kan derfra håndtere resten.;
+
+        // byg kommando
+        CommandBuilder com = new CommandBuilder()
+                .setCommand("BASE", CommandFactory.CommandType.USER)
+                .setPlayer(commandSender)
+                .setArgs(strings);
+        // udfør kommando
+        invoker.executeCommand(com.getCommand());
+        return true;
+    }
+}
