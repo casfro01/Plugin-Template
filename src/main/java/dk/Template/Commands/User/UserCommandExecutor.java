@@ -21,12 +21,13 @@ public class UserCommandExecutor implements org.bukkit.command.CommandExecutor{
             return true;
         }
         // Find argumenterne, hvis der er nogen. Hvis der ikke er så er den tom... og kommandoerne kan derfra håndtere resten.;
-
+        String[] args = (strings.length > 1) ? Arrays.copyOfRange(strings, 1, strings.length) : new String[0];
+        String baseCommand = strings[0].toLowerCase();
         // byg kommando
         CommandBuilder com = new CommandBuilder()
-                .setCommand("BASE", CommandFactory.CommandType.USER)
+                .setCommand(baseCommand, CommandFactory.CommandType.USER)
                 .setPlayer(commandSender)
-                .setArgs(strings);
+                .setArgs(args);
         // udfør kommando
         invoker.executeCommand(com.getCommand());
         return true;
