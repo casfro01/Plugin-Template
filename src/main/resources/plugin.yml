@@ -12,10 +12,10 @@ commands:
       - k1
     description: Henter alle bruger kommandoer.
     permission: permission
-    permission-message: Du har ikke adgang til denne kit kommando.
+    permission-message: Du har ikke adgang til denne kommando.
   command2:
     aliases:
       - k2
-    description: Henter alle kit admin kommandoer.
+    description: Henter alle admin kommandoer.
     permission: permission.admin
     permission-message: Du har ikke adgang til denne admin kommando.
