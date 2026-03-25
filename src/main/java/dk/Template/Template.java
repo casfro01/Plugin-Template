@@ -1,7 +1,6 @@
 package dk.Template;
 
 import dk.Template.Commands.Abstractions.ICommand;
-import dk.ScriptForge.kitSystem.Commands.Admin.*;
 import dk.Template.Commands.Admin.*;
 import dk.Template.Commands.CommandFactory;
 import dk.Template.Commands.Registry.CommandAdminRegistry;
