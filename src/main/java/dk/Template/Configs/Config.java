@@ -13,7 +13,7 @@ public class Config implements IConfig {
 
 
     public Config(Plugin plugin, String path) {
-        setup(plugin, plugin.getDataFolder().getAbsolutePath() + "/" + path);
+        setup(plugin, path);
     }
 
     private void setup(Plugin plugin, String path) {
